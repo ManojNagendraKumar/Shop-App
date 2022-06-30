@@ -207,7 +207,7 @@ class CartScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          '\$${cart.totalAmount}',
+                          '\$${cart.totalAmount.toStringAsFixed(2)}',
                           style: const TextStyle(
                               fontSize: 20, fontWeight: FontWeight.w800),
                         ),

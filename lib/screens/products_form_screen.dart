@@ -285,7 +285,7 @@ class _ProductsFormScreenState extends State<ProductsFormScreen> {
                           style:
                               ElevatedButton.styleFrom(primary: Colors.black),
                           child: const Text(
-                            'Submit',
+                            'Save',
                             style: TextStyle(
                                 fontSize: 17, fontWeight: FontWeight.bold),
                           ),
