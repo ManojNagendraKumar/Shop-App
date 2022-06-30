@@ -44,17 +44,17 @@ class _OrdersScreenState extends State<OrdersScreen> {
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: orderItems.isEmpty
-          ? const Center(
-              child: Text(
-                'No Orders placed!!',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+      body: _isLoading
+          ? Center(
+              child: CircularProgressIndicator(
+                color: Theme.of(context).primaryColor,
               ),
             )
-          : _isLoading
-              ? Center(
-                  child: CircularProgressIndicator(
-                    color: Theme.of(context).primaryColor,
+          : orderItems.isEmpty
+              ? const Center(
+                  child: Text(
+                    'No Orders placed!!',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 )
               : ListView.builder(

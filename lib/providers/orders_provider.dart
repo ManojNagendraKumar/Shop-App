@@ -49,10 +49,10 @@ class Orders with ChangeNotifier {
         'https://assessment-shop-bf5f4-default-rtdb.firebaseio.com/orders.json');
     try {
       final response = await http.get(url);
-      final extractedData = json.decode(response.body) as Map<String, dynamic>;
+      Map<String, dynamic>? extractedData = json.decode(response.body);
 
       final List<OrderItems> _loadedOrders = [];
-      if (extractedData.isNotEmpty) {
+      if (extractedData!.isNotEmpty) {
         extractedData.forEach((key, value) {
           _loadedOrders.add(OrderItems(
             id: key,
@@ -70,9 +70,7 @@ class Orders with ChangeNotifier {
           _orderItems = _loadedOrders;
         });
       }
-    } catch (error) {
-      throw error;
-    }
+    } catch (error) {}
     notifyListeners();
   }
 }

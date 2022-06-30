@@ -227,7 +227,9 @@ class CartScreen extends StatelessWidget {
                           style:
                               ElevatedButton.styleFrom(primary: Colors.black),
                           onPressed: () {
-                            _flutterToast('Order Placed');
+                            _flutterToast(
+                              'Order Placed',
+                            );
                             Provider.of<Orders>(context, listen: false)
                                 .addOrders(cartItems.values.toList(),
                                     cart.totalAmount);
