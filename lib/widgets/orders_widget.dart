@@ -59,7 +59,7 @@ class _OrdersWidgetState extends State<OrdersWidget> {
                     Container(
                       margin: const EdgeInsets.all(10),
                       child: Text(
-                        '\$${widget.orders.totalAmount}',
+                        '\$${widget.orders.totalAmount!.toStringAsFixed(2)}',
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
