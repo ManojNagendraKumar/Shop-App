@@ -60,7 +60,8 @@ class _OrdersScreenState extends State<OrdersScreen> {
               : ListView.builder(
                   itemCount: orders.orderItems.length,
                   itemBuilder: (context, index) {
-                    return OrdersWidget(orderItems[index]);
+                    return ChangeNotifierProvider.value(
+                        value: orders.orderItems[index], child: OrdersWidget());
                   },
                 ),
       drawer: AppDrawer(),

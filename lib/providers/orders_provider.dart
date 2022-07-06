@@ -4,7 +4,7 @@ import 'package:assessment2_app/providers/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class OrderItems {
+class OrderItems with ChangeNotifier {
   String? id;
   List<CartItems>? products;
   double? totalAmount;

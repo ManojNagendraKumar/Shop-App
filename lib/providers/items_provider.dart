@@ -155,9 +155,7 @@ class ItemsProvider with ChangeNotifier {
         ));
         _items = _loadedProducts;
       });
-    } catch (error) {
-      throw error;
-    }
+    } catch (error) {}
 
     notifyListeners();
   }

@@ -2,13 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import '../providers/orders_provider.dart';
 
 class OrdersWidget extends StatefulWidget {
-  OrderItems orders;
-
-  OrdersWidget(this.orders);
-
   @override
   State<OrdersWidget> createState() => _OrdersWidgetState();
 }
@@ -18,6 +15,7 @@ class _OrdersWidgetState extends State<OrdersWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final orders = Provider.of<OrderItems>(context);
     return Container(
       padding: const EdgeInsets.all(8),
       child: SingleChildScrollView(
@@ -49,7 +47,7 @@ class _OrdersWidgetState extends State<OrdersWidget> {
                           ),
                           Text(
                             DateFormat('dd/MM/yyyy hh:mm')
-                                .format(widget.orders.dateTime!),
+                                .format(orders.dateTime!),
                             style: TextStyle(color: Colors.grey.shade600),
                           )
                         ],
@@ -59,7 +57,7 @@ class _OrdersWidgetState extends State<OrdersWidget> {
                     Container(
                       margin: const EdgeInsets.all(10),
                       child: Text(
-                        '\$${widget.orders.totalAmount!.toStringAsFixed(2)}',
+                        '\$${orders.totalAmount!.toStringAsFixed(2)}',
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
@@ -81,13 +79,13 @@ class _OrdersWidgetState extends State<OrdersWidget> {
               Container(
                   padding: const EdgeInsets.all(10),
                   height: min(
-                      widget.orders.products!.length *
+                      orders.products!.length *
                               MediaQuery.of(context).size.height *
                               0.05 +
                           MediaQuery.of(context).size.height * 0.2,
                       MediaQuery.of(context).size.height * 0.3),
                   child: ListView(
-                    children: widget.orders.products!
+                    children: orders.products!
                         .map((prod) => Container(
                               padding: const EdgeInsets.all(10),
                               child: Row(
